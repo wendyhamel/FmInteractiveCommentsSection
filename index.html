@@ -4,23 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind play cdn for this challenge ( for development and play purposes ) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          'sans': ['Rubik', 'sans-serif'],
+        },
+        extend: {
+          colors: {
+            blue: 'hsl(238, 40%, 52%)',
+            'light-blue': 'hsl(239, 57%, 85%)',
+            'soft-red': 'hsl(358, 79%, 66%)',
+            'pale-red': 'hsl(357, 100%, 86%)',
+            'dark-blue': 'hsl(212, 24%, 26%)',
+            'gray-blue': 'hsl(211, 10%, 45%)',
+            'Light-gray': 'hsl(223, 19%, 93%)',
+            'very-light-gray': 'hsl(228, 33%, 97%)',
+            white: 'hsl(0, 0%, 100%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js for minimal js to toggle the menu -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Interactive comments section</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
-  <!-- Pull dynamic content from the data.json file -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+<div class="m-4 grid grid-cols-3 gap-2">
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-blue"></div>
+    <span>blue</span>
   </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-light-blue"></div>
+    <span>light-blue</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-soft-red"></div>
+    <span>soft-red</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-pale-red"></div>
+    <span>pale-red</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-dark-blue"></div>
+    <span>dark-blue</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-gray-blue"></div>
+    <span>gray-blue</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-Light-gray"></div>
+    <span>Light-gray</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-very-light-gray"></div>
+    <span>very-light-gray</span>
+  </div>
+  <div>
+    <div class="w-12 h-12 border border-gray-100 bg-white"></div>
+    <span>white</span>
+  </div>
+</div>
+  <!-- Pull dynamic content from the data.json file -->
+<main class="py-8 px-4 bg-very-light-gray">
+  <h1 class="sr-only">Interactive comments section</h1>
+<div class="grid gap-4">
+  <div class="bg-white rounded-lg space-y-4 p-4">
+    <div class="flex items-center gap-4">
+      <img class="w-10 h-10" src="images/avatars/image-amyrobson.png" alt="avatar">
+      <span class="font-medium">Name</span>
+      <span class="text-gray-blue">date</span>
+    </div>
+    <div class="text-gray-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet cum fugit ipsam ipsum itaque maiores nam numquam porro quaerat quos recusandae repellat unde, vitae? Assumenda atque dolor eius modi sequi sit tempore?</div>
+    <div class="flex justify-between">
+      <div class="rounded-lg bg-very-light-gray flex">
+        <div class="p-2 grid place-items-center"><img src="images/icon-plus.svg" alt=""></div>
+        <div class="p-2 text-blue font-medium">4</div>
+        <div class="p-2 grid place-items-center"><img src="images/icon-minus.svg" alt=""></div>
+      </div>
+      <div>
+        <button class="flex items-center gap-2 text-blue font-medium" type="button">
+          <img src="images/icon-reply.svg" alt="">
+          <span>Reply</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-lg space-y-4 p-4">
+    <div class="text-gray-blue">
+      <textarea class="border border-light-gray rounded-lg w-full" name="" id="" rows="4"></textarea>
+    </div>
+    <div class="flex justify-between">
+      <img class="w-10 h-10" src="images/avatars/image-amyrobson.png" alt="avatar">
+      <div>
+        <button class="flex items-center bg-blue rounded-lg py-2 px-6 uppercase text-white font-medium" type="submit">
+          <span>Send</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="">
+    Challenge by <a href="https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
+  </div>
+</footer>
+
 </body>
 </html>
