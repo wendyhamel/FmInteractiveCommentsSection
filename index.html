@@ -25,7 +25,7 @@
             'pale-red': 'hsl(357, 100%, 86%)',
             'dark-blue': 'hsl(212, 24%, 26%)',
             'gray-blue': 'hsl(211, 10%, 45%)',
-            'Light-gray': 'hsl(223, 19%, 93%)',
+            'light-gray': 'hsl(223, 19%, 93%)',
             'very-light-gray': 'hsl(228, 33%, 97%)',
             white: 'hsl(0, 0%, 100%)',
           }
@@ -42,93 +42,99 @@
   <title>Frontend Mentor | Interactive comments section</title>
 
 </head>
-<body>
+<body class="pt-8 px-4 bg-very-light-gray">
 
-<div class="m-4 grid grid-cols-3 gap-2">
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-blue"></div>
-    <span>blue</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-light-blue"></div>
-    <span>light-blue</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-soft-red"></div>
-    <span>soft-red</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-pale-red"></div>
-    <span>pale-red</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-dark-blue"></div>
-    <span>dark-blue</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-gray-blue"></div>
-    <span>gray-blue</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-Light-gray"></div>
-    <span>Light-gray</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-very-light-gray"></div>
-    <span>very-light-gray</span>
-  </div>
-  <div>
-    <div class="w-12 h-12 border border-gray-100 bg-white"></div>
-    <span>white</span>
-  </div>
-</div>
-  <!-- Pull dynamic content from the data.json file -->
-<main class="py-8 px-4 bg-very-light-gray">
-  <h1 class="sr-only">Interactive comments section</h1>
-<div class="grid gap-4">
-  <div class="bg-white rounded-lg space-y-4 p-4">
-    <div class="flex items-center gap-4">
-      <img class="w-10 h-10" src="images/avatars/image-amyrobson.png" alt="avatar">
-      <span class="font-medium">Name</span>
-      <span class="text-gray-blue">date</span>
-    </div>
-    <div class="text-gray-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet cum fugit ipsam ipsum itaque maiores nam numquam porro quaerat quos recusandae repellat unde, vitae? Assumenda atque dolor eius modi sequi sit tempore?</div>
-    <div class="flex justify-between">
-      <div class="rounded-lg bg-very-light-gray flex">
-        <div class="p-2 grid place-items-center"><img src="images/icon-plus.svg" alt=""></div>
-        <div class="p-2 text-blue font-medium">4</div>
-        <div class="p-2 grid place-items-center"><img src="images/icon-minus.svg" alt=""></div>
+  <main>
+    <h1 class="sr-only">Interactive comments section</h1>
+  <div class="grid gap-4">
+    <div class="bg-white rounded-lg space-y-4 p-4">
+      <div class="flex items-center gap-4">
+        <img class="w-8 h-8" src="images/avatars/image-amyrobson.png" alt="avatar">
+        <span class="font-medium">Name</span>
+        <span class="text-gray-blue">date</span>
       </div>
-      <div>
-        <button class="flex items-center gap-2 text-blue font-medium" type="button">
-          <img src="images/icon-reply.svg" alt="">
-          <span>Reply</span>
-        </button>
+      <div class="text-gray-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet cum fugit ipsam ipsum itaque maiores nam numquam porro quaerat quos recusandae repellat unde, vitae? Assumenda atque dolor eius modi sequi sit tempore?</div>
+      <div class="flex justify-between">
+        <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5">
+          <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+          <span class="p-2 text-blue font-medium">4</span>
+          <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+        </div>
+        <div>
+          <button class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150" type="button">
+           <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z" fill="currentColor"/></svg>
+            <span>Reply</span>
+          </button>
+        </div>
       </div>
     </div>
+    <div class="border-l border-light-gray pl-4 space-y-4">
+      <div class="bg-white rounded-lg space-y-4 p-4">
+        <div class="flex items-center gap-4">
+          <img class="w-8 h-8" src="images/avatars/image-amyrobson.png" alt="avatar">
+          <span class="font-medium">Name</span>
+          <span class="text-gray-blue">date</span>
+        </div>
+        <div class="text-gray-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet cum fugit ipsam ipsum itaque maiores nam numquam porro quaerat quos recusandae repellat unde, vitae? Assumenda atque dolor eius modi sequi sit tempore?</div>
+        <div class="flex justify-between">
+          <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5">
+            <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+            <span class="p-2 text-blue font-medium">4</span>
+            <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+          </div>
+          <div>
+            <button class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150" type="button">
+             <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z" fill="currentColor"/></svg>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg space-y-4 p-4">
+        <div class="flex items-center gap-4">
+          <img class="w-8 h-8" src="images/avatars/image-amyrobson.png" alt="avatar">
+          <span class="font-medium">Name</span>
+          <span class="rounded-sm bg-blue text-white py-.5 px-2">you</span>
+          <span class="text-gray-blue">date</span>
+        </div>
+        <div class="text-gray-blue"><span class="text-blue font-medium mr-1">@ramsesmiron</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam amet cum fugit ipsam ipsum itaque maiores nam numquam porro quaerat quos recusandae repellat unde, vitae? Assumenda atque dolor eius modi sequi sit tempore?</div>
+        <div class="flex justify-between">
+          <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5">
+            <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+            <span class="p-2 text-blue font-medium">4</span>
+            <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+          </div>
+          <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 text-soft-red font-medium hover:text-pale-red ease-in-out duration-150" type="button">
+              <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z" fill="currentColor"/></svg>
+              <span>Delete</span>
+            </button>
+            <button class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150" type="button">
+              <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z" fill="currentColor"/></svg>
+              <span>Edit</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg space-y-4 p-4">
+      <textarea placeholder="Add a comment..." style="resize:none;" class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150" name="" id="" rows="4"></textarea>
+      <div class="flex justify-between items-center">
+        <img class="w-8 h-8" src="images/avatars/image-amyrobson.png" alt="avatar">
+          <button class="flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150" type="submit">
+            <span>Send</span>
+          </button>
+      </div>
+    </div>
   </div>
+  </main>
 
-  <div class="bg-white rounded-lg space-y-4 p-4">
-    <div class="text-gray-blue">
-      <textarea class="border border-light-gray rounded-lg w-full" name="" id="" rows="4"></textarea>
+  <footer>
+    <div class="my-2 text-xs text-gray-blue text-center">
+      Challenge by <a class="text-blue hover:text-dark-blue hover:underline ease-in-out duration-150" href="https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9" target="_blank">Frontend Mentor</a>.
+      Coded by <a class="text-blue hover:text-dark-blue hover:underline ease-in-out duration-150" href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
     </div>
-    <div class="flex justify-between">
-      <img class="w-10 h-10" src="images/avatars/image-amyrobson.png" alt="avatar">
-      <div>
-        <button class="flex items-center bg-blue rounded-lg py-2 px-6 uppercase text-white font-medium" type="submit">
-          <span>Send</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-</main>
-<footer>
-  <div class="">
-    Challenge by <a href="https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
