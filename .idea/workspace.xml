@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -12,6 +14,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650454588478</updated>
       <workItem from="1650454593707" duration="2000" />
-      <workItem from="1650454606692" duration="7163000" />
+      <workItem from="1650454606692" duration="13421000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -56,7 +65,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650457136120</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Styling mobile and hover/active states.">
+      <created>1650541635184</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650541635184</updated>
+    </task>
+    <task id="LOCAL-00004" summary="wider border in reply section">
+      <created>1650541790425</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650541790425</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -67,6 +90,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="setup project" />
     <MESSAGE value="First styling of comment boxes." />
-    <option name="LAST_COMMIT_MESSAGE" value="First styling of comment boxes." />
+    <MESSAGE value="Styling mobile and hover/active states." />
+    <MESSAGE value="wider border in reply section" />
+    <option name="LAST_COMMIT_MESSAGE" value="wider border in reply section" />
   </component>
 </project>
