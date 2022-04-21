@@ -40,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650454588478</updated>
       <workItem from="1650454593707" duration="2000" />
-      <workItem from="1650454606692" duration="2420000" />
+      <workItem from="1650454606692" duration="7163000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -49,7 +49,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650454641577</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First styling of comment boxes.">
+      <created>1650457136120</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650457136120</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -59,6 +66,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="setup project" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup project" />
+    <MESSAGE value="First styling of comment boxes." />
+    <option name="LAST_COMMIT_MESSAGE" value="First styling of comment boxes." />
   </component>
 </project>
