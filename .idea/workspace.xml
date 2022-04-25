@@ -48,7 +48,7 @@
       <updated>1650454588478</updated>
       <workItem from="1650454593707" duration="2000" />
       <workItem from="1650454606692" duration="13722000" />
-      <workItem from="1650554084893" duration="11304000" />
+      <workItem from="1650554084893" duration="13370000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -92,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650559215475</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="edit of own comment styling">
+      <created>1650874247660</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650874247660</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +114,7 @@
     <MESSAGE value="wider border in reply section" />
     <MESSAGE value="Loop trough posts" />
     <MESSAGE value="working on desktop styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on desktop styling" />
+    <MESSAGE value="edit of own comment styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit of own comment styling" />
   </component>
 </project>
