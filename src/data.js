@@ -67,5 +67,77 @@ window.data = function () {
             }
         ],
 
+        deleteModal : false,
+        newPost: '',
+        editedPost: null,
+        // newReply: '',
+
+        addPost() {
+            if (! this.newPost) {
+                return;
+            }
+            this.posts.push({
+                id: Date.now(),
+                createdAt: 'just now',
+                score: 0,
+                content: this.newPost,
+                user: {
+                    image: {
+                        png: "./images/avatars/image-juliusomo.png",
+                        webp: "./images/avatars/image-juliusomo.webp"
+                    },
+                    username: "juliusomo"
+                }
+            });
+
+            this.newPost = '';
+        },
+
+        editPost(post) {
+            post.cashedPost = post.content;
+            this.editedPost = post;
+        },
+
+        editComplete(post) {
+            if(post.content.trim() === '') {
+                return this.removePost(post);
+            }
+            this.editedPost = null;
+        },
+
+        cancelEdit(post) {
+            post.content = post.cashedPost;
+            this.editedPost = null;
+            delete post.cashedPost;
+        },
+
+        removePost(post) {
+            let index = this.posts.indexOf(post);
+            this.posts.splice(index, 1);
+        },
+
+        // addReply() {
+        //     if (! this.newReply) {
+        //         return;
+        //     }
+        //     this.posts.push({
+        //         id: Date.now(),
+        //         createdAt: 'just now',
+        //         score: 0,
+        //         replyingTo: this.post.user.username,
+        //         content: this.newReply,
+        //         user: {
+        //             image: {
+        //                 png: "./images/avatars/image-juliusomo.png",
+        //                 webp: "./images/avatars/image-juliusomo.webp"
+        //             },
+        //             username: "juliusomo"
+        //         }
+        //     });
+        //
+        //     this.newReply = '';
+        // }
+
+
     }
 }
