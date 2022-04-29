@@ -43,8 +43,8 @@
                 <span class="text-gray-blue" x-text="post.createdAt"></span>
               </div>
               <div class=" w-full col-span-2 md:col-start-2 md:col-span-3 md:w-[31rem] lg:w-[33rem]">
-                <div x-show="post !== editedPost" class="text-gray-blue tracking-wide" x-text="post.content"></div>
-               <div x-show="post === editedPost">
+                <div x-show="post !== editing" class="text-gray-blue tracking-wide" x-text="post.content"></div>
+               <div x-show="post === editing">
                   <textarea
                       x-model="post.content"
                       @keyup.escape="cancelEdit(post)"
@@ -54,7 +54,7 @@
                       style="resize:none;"
                   ></textarea>
                  <button
-                     @click="editComplete(post)"
+                     @click="update(post)"
                      class="ml-auto mt-3 flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
                      type="submit"
                  >
@@ -64,14 +64,14 @@
               </div>
               <div class="flex md:w-10 md:block md:col-start-1 md:row-span-2 md:place-content-start">
                 <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5 md:flex-col md:py-3 md:gap-1">
-                  <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+                  <a @click="post.score ++" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
                   <span class="p-2 text-blue font-medium md:p-0" x-text="post.score"></span>
-                  <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+                  <a @click="post.score --" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
                 </div>
               </div>
               <div x-show="currentUser.username === post.user.username" class="flex justify-end items-center gap-4">
                 <button
-                    @click="deleteModal = true"
+                    @click="deleteModal = true; messageToDelete = post"
                     class="flex items-center gap-2 text-soft-red font-medium hover:text-pale-red ease-in-out duration-150"
                     type="button"
                 >
@@ -79,7 +79,7 @@
                   <span>Delete</span>
                 </button>
                 <button
-                    @click="editPost(post)"
+                    @click="edit(post)"
                     type="button"
                     class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150"
                 >
@@ -88,7 +88,11 @@
                 </button>
               </div>
               <div x-show="currentUser.username !== post.user.username" class="flex justify-end">
-                <button @click="console.log(posts)" class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150" type="button">
+                <button
+                      @click="startReply = true"
+                      class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150"
+                      type="button"
+                >
                   <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z" fill="currentColor"/></svg>
                   <span>Reply</span>
                 </button>
@@ -101,6 +105,7 @@
             >
               <div class="tracking-wide col-span-2 md:col-start-2">
                 <textarea
+                     x-model="newReply"
                      placeholder="Add a comment..."
                      rows="3"
                      class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[31rem] lg:w-[33rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
@@ -111,8 +116,12 @@
                 <img class="w-8 h-8 shrink-0 md:w-10 md:h-10" :src="currentUser.image.png" :alt="currentUser.username">
               </div>
               <div class="flex justify-end md:block md:col-start-4">
-                <button class="flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150" type="submit">
-                  <span>Send</span>
+                <button
+                    @click="addReply(post); startReply = false"
+                    class="flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
+                    type="submit"
+                >
+                  <span>Reply</span>
                 </button>
               </div>
             </div>
@@ -127,32 +136,38 @@
                       <span class="text-gray-blue" x-text="reply.createdAt"></span>
                     </div>
                     <div class="tracking-wide col-span-2 md:col-start-2 md:col-span-3">
-                      <div x-show="!edit">
+                      <div x-show="editing !== reply">
                         <span class="text-blue font-medium mr-1">@<span x-text="reply.replyingTo"></span></span>
                         <span class="text-gray-blue" x-text="reply.content"></span>
                       </div>
-                      <div x-show="edit">
+                      <div x-show="editing === reply">
                         <textarea
-                                placeholder="Add a comment..."
-                                rows="3"
-                                class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[33rem] lg:w-[35rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
-                                style="resize:none;"
+                            x-model="reply.content"
+                            @keyup.escape="cancelEdit(reply)"
+                            placeholder="Add a comment..."
+                            rows="3"
+                            class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[33rem] lg:w-[35rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
+                            style="resize:none;"
                         ></textarea>
-                        <button class="ml-auto mt-3 flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150" type="submit">
+                        <button
+                            @click="update()"
+                            class="ml-auto mt-3 flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
+                            type="submit"
+                        >
                           <span>Update</span>
                         </button>
                       </div>
                     </div>
                     <div class="flex md:block md:col-start-1 md:row-span-2 md:place-content-start">
                       <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5 md:flex-col md:w-10 md:py-3 md:gap-1">
-                        <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+                        <a @click="reply.score ++" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
                         <span class="p-2 text-blue font-medium md:p-0" x-text="reply.score"></span>
-                        <a href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+                        <a @click="reply.score --" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
                       </div>
                     </div>
                     <div x-show="currentUser.username === reply.user.username" class="flex justify-end items-center gap-4">
                       <button
-                          @click="deleteModal = true"
+                          @click="deleteModal = true; messageToDelete = reply"
                           class="flex items-center gap-2 text-soft-red font-medium hover:text-pale-red ease-in-out duration-150"
                           type="button"
                       >
@@ -160,7 +175,7 @@
                         <span>Delete</span>
                       </button>
                       <button
-                          @click="edit = !edit"
+                          @click="edit(reply)"
                           type="button"
                           class="flex items-center gap-2 text-blue font-medium hover:text-light-blue ease-in-out duration-150"
                       >
@@ -197,7 +212,7 @@
                     </div>
                     <div class="flex justify-end md:block md:col-start-4">
                       <button class="text-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150" type="submit">
-                        <span>Send</span>
+                        <span>Reply</span>
                       </button>
                     </div>
                   </div>
@@ -214,13 +229,13 @@
                       <p class="text-gray-blue">Are you sue you want to delete this comment? This will remove the comment and can't be undone.</p>
                       <div class="flex flex-col gap-4 pb-2 sm:flex-row">
                         <button
-                            @click="deleteModal = false"
+                            @click="messageToDelete = null; deleteModal = false"
                             class="text-center bg-gray-blue rounded-lg py-3 px-7 uppercase text-white tracking-wide hover:bg-opacity-50 ease-in-out duration-150" type="submit"
                         >
                           <span>No, cancel</span>
                         </button>
                         <button
-                              @click="removePost(post)"
+                              @click="removeMessage(); deleteModal = false"
                               class="text-center bg-soft-red rounded-lg py-3 px-7 uppercase text-white tracking-wide hover:bg-pale-red ease-in-out duration-150" type="submit">
                           <span>Yes, delete</span>
                         </button>

@@ -69,8 +69,10 @@ window.data = function () {
 
         deleteModal : false,
         newPost: '',
-        editedPost: null,
-        // newReply: '',
+        editing: null,
+        messageToDelete: null,
+        newReply: '',
+        editedReply: null,
 
         addPost() {
             if (! this.newPost) {
@@ -93,51 +95,62 @@ window.data = function () {
             this.newPost = '';
         },
 
-        editPost(post) {
-            post.cashedPost = post.content;
-            this.editedPost = post;
+        edit(message) {
+            message.cachedContent = message.content;
+            this.editing = message;
         },
 
-        editComplete(post) {
-            if(post.content.trim() === '') {
-                return this.removePost(post);
+        update() {
+            if(this.editing.content.trim() === '') {
+                return this.removePost(this.editing);
             }
-            this.editedPost = null;
+            this.editing = null;
         },
 
-        cancelEdit(post) {
-            post.content = post.cashedPost;
-            this.editedPost = null;
-            delete post.cashedPost;
+        cancelEdit(message) {
+            message.content = message.cachedContent;
+            this.editing = null;
+            delete message.cachedContent;
         },
 
-        removePost(post) {
-            let index = this.posts.indexOf(post);
+        removeMessage() {
+            let id = messageToDelete.id;
+            console.log(id, messageToDelete.id)
+            let matchedArray = this.posts.flatMap(arr => arr.filter(obj.id === id))
+            console.log(matchedArray)
+        },
+
+        removePost() {
+            let index = this.posts.indexOf(this.postToDelete);
             this.posts.splice(index, 1);
         },
 
-        // addReply() {
-        //     if (! this.newReply) {
-        //         return;
-        //     }
-        //     this.posts.push({
-        //         id: Date.now(),
-        //         createdAt: 'just now',
-        //         score: 0,
-        //         replyingTo: this.post.user.username,
-        //         content: this.newReply,
-        //         user: {
-        //             image: {
-        //                 png: "./images/avatars/image-juliusomo.png",
-        //                 webp: "./images/avatars/image-juliusomo.webp"
-        //             },
-        //             username: "juliusomo"
-        //         }
-        //     });
-        //
-        //     this.newReply = '';
-        // }
+        addReply(post) {
+            if (! this.newReply) {
+                return;
+            }
+            this.post.replies.push({
+                id: Date.now(),
+                createdAt: 'just now',
+                score: 0,
+                replyingTo: post.user.username,
+                content: this.newReply,
+                user: {
+                    image: {
+                        png: "./images/avatars/image-juliusomo.png",
+                        webp: "./images/avatars/image-juliusomo.webp"
+                    },
+                    username: "juliusomo"
+                }
+            });
 
+            this.newReply = '';
+        },
+
+        removeReply(post, reply) {
+            let index = post.replies.indexOf(reply);
+            post.replies.splice(index, 1);
+        },
 
     }
 }

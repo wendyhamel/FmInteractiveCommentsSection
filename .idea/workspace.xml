@@ -37,6 +37,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -49,7 +50,8 @@
       <updated>1650454588478</updated>
       <workItem from="1650454593707" duration="2000" />
       <workItem from="1650454606692" duration="13722000" />
-      <workItem from="1650554084893" duration="19822000" />
+      <workItem from="1650554084893" duration="20792000" />
+      <workItem from="1651226328283" duration="12547000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -107,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650875991707</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Working on crud">
+      <created>1650897750848</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650897750848</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +133,7 @@
     <MESSAGE value="working on desktop styling" />
     <MESSAGE value="edit of own comment styling" />
     <MESSAGE value="Styled delete modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styled delete modal" />
+    <MESSAGE value="Working on crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on crud" />
   </component>
 </project>
