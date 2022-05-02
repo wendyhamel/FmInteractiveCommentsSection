@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
-    </list>
+    <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +48,7 @@
       <workItem from="1650454606692" duration="13722000" />
       <workItem from="1650554084893" duration="20792000" />
       <workItem from="1651226328283" duration="13116000" />
-      <workItem from="1651479948598" duration="3798000" />
+      <workItem from="1651479948598" duration="4111000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -124,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651246429025</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Reply edit comment working again.&#10;fixed width problem with a custom grid">
+      <created>1651508508838</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1651508508838</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +146,7 @@
     <MESSAGE value="Styled delete modal" />
     <MESSAGE value="Working on crud" />
     <MESSAGE value="Working on cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on cleanup code" />
+    <MESSAGE value="Reply edit comment working again.&#10;fixed width problem with a custom grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reply edit comment working again.&#10;fixed width problem with a custom grid" />
   </component>
 </project>
