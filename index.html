@@ -35,16 +35,16 @@
       <template x-for="post in posts" :key="post.id">
         <div x-data="{startReply: false}">
           <div>
-            <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-flow-row-dense md:p-6 md:gap-x-6">
+            <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6">
               <div class="flex items-center gap-4 col-span-2 md:col-start-2">
                 <img class="w-8 h-8" :src="post.user.image.png" :alt="post.user.username">
                 <span class="font-medium" x-text="post.user.username"></span>
                 <span x-show="currentUser.username === post.user.username" class="rounded-sm bg-blue text-white py-.5 px-2">you</span>
                 <span class="text-gray-blue" x-text="post.createdAt"></span>
               </div>
-              <div class=" w-full col-span-2 md:col-start-2 md:col-span-3 md:w-[31rem] lg:w-[33rem]">
+              <div class=" w-full col-span-2 md:col-start-2 md:col-span-3">
                 <div x-show="post !== editing" class="text-gray-blue tracking-wide" x-text="post.content"></div>
-               <div x-show="post === editing">
+                <div x-show="post === editing">
                   <textarea
                       x-model="post.content"
                       @keyup.escape="cancelEdit(post)"
@@ -53,20 +53,20 @@
                       class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[31rem] lg:w-[33rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
                       style="resize:none;"
                   ></textarea>
-                 <button
+                  <button
                      @click="update(post)"
                      class="ml-auto mt-3 flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
                      type="submit"
-                 >
-                   <span>Update</span>
-                 </button>
-               </div>
+                  >
+                    <span>Update</span>
+                  </button>
+                </div>
               </div>
               <div class="flex md:w-10 md:block md:col-start-1 md:row-span-2 md:place-content-start">
                 <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5 md:flex-col md:py-3 md:gap-1">
-                  <a @click="post.score ++" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+                  <button @click="post.score ++" type="button" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></button>
                   <span class="p-2 text-blue font-medium md:p-0" x-text="post.score"></span>
-                  <a @click="post.score --" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+                  <button @click="post.score --" type="button" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></button>
                 </div>
               </div>
               <div x-show="currentUser.username === post.user.username" class="flex justify-end items-center gap-4">
@@ -101,18 +101,18 @@
             <div
                 x-show="startReply"
                 x-collapse
-                class="mt-2 grid bg-white rounded-lg gap-4 p-4 md:grid-flow-row-dense md:p-6 md:gap-x-6"
+                class="mt-2 grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6"
             >
               <div class="tracking-wide col-span-2 md:col-start-2">
                 <textarea
                      x-model="newReply"
                      placeholder="Add a comment..."
                      rows="3"
-                     class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[31rem] lg:w-[33rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
+                     class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
                      style="resize:none;"
                 ></textarea>
               </div>
-              <div class="flex shrink-0 md:col-start-1">
+              <div class="flex shrink-0 col-start-1">
                 <img class="w-8 h-8 shrink-0 md:w-10 md:h-10" :src="currentUser.image.png" :alt="currentUser.username">
               </div>
               <div class="flex justify-end md:block md:col-start-4">
@@ -127,8 +127,8 @@
             </div>
             <div class="border-l-2 border-light-gray pl-4 space-y-4 md:ml-11 md:pl-11">
               <template x-for="reply in post.replies" :key="reply.id">
-                <div x-data="{startReplyOnReply : false, edit : false}">
-                  <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-flow-row-dense md:p-6 md:gap-x-6">
+                <div x-data="{startReplyOnReply : false}">
+                  <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6">
                     <div class="flex items-center gap-4 col-span-2 md:col-start-2">
                       <img class="w-8 h-8" :src="reply.user.image.png" :alt="reply.user.username">
                       <span class="font-medium" x-text="reply.user.username"></span>
@@ -136,11 +136,11 @@
                       <span class="text-gray-blue" x-text="reply.createdAt"></span>
                     </div>
                     <div class="tracking-wide col-span-2 md:col-start-2 md:col-span-3">
-                      <div x-show="editing !== reply">
+                      <div x-show="reply !== editing">
                         <span class="text-blue font-medium mr-1">@<span x-text="reply.replyingTo"></span></span>
                         <span class="text-gray-blue" x-text="reply.content"></span>
                       </div>
-                      <div x-show="editing === reply">
+                      <div x-show="reply === editing">
                         <textarea
                             x-model="reply.content"
                             @keyup.escape="cancelEdit(reply)"
@@ -160,9 +160,9 @@
                     </div>
                     <div class="flex md:block md:col-start-1 md:row-span-2 md:place-content-start">
                       <div class="rounded-lg bg-very-light-gray flex items-center px-1.5 gap-.5 md:flex-col md:w-10 md:py-3 md:gap-1">
-                        <a @click="reply.score ++" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></a>
+                        <button @click="reply.score ++" type="button"class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="currentColor"/></svg></button>
                         <span class="p-2 text-blue font-medium md:p-0" x-text="reply.score"></span>
-                        <a @click="reply.score --" href="#" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></a>
+                        <button @click="reply.score --" type="button" class="p-2 grid place-items-center text-light-blue hover:text-blue ease-in-out duration-150"><svg width="11" height="3" xmlns="http://www.w3.org/2000/svg"><path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="currentColor"/></svg></button>
                       </div>
                     </div>
                     <div x-show="currentUser.username === reply.user.username" class="flex justify-end items-center gap-4">
@@ -197,13 +197,13 @@
                   <div
                       x-show="startReplyOnReply"
                       x-collapse
-                      class="mt-2 grid bg-white rounded-lg gap-4 p-4 md:grid-flow-row-dense md:p-6 md:gap-x-6"
+                      class="mt-2 grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6"
                   >
                     <div class="tracking-wide col-span-2 md:col-start-2">
                       <textarea
                          placeholder="Add a comment..."
                          rows="3"
-                         class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full md:w-[25rem] lg:w-[27.5rem] hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
+                         class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
                          style="resize:none;"
                       ></textarea>
                     </div>

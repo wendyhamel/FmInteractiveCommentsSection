@@ -114,10 +114,8 @@ window.data = function () {
         },
 
         removeMessage() {
-            let id = messageToDelete.id;
-            console.log(id, messageToDelete.id)
-            let matchedArray = this.posts.flatMap(arr => arr.filter(obj.id === id))
-            console.log(matchedArray)
+            let id = this.messageToDelete.id;
+            let matchedArray = this.posts.flatMap(arr => arr.filter(this.posts.every(post => post.id.includes(id))))
         },
 
         removePost() {
