@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <workItem from="1650454606692" duration="13722000" />
       <workItem from="1650554084893" duration="20792000" />
       <workItem from="1651226328283" duration="13116000" />
-      <workItem from="1651479948598" duration="9815000" />
+      <workItem from="1651479948598" duration="10434000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -153,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651572206573</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Simple delete, added sorting of posts.">
+      <created>1651581790185</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1651581790185</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +179,7 @@
     <MESSAGE value="Working on cleanup code" />
     <MESSAGE value="Reply edit comment working again.&#10;fixed width problem with a custom grid" />
     <MESSAGE value="fixed width problem with a custom grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed width problem with a custom grid" />
+    <MESSAGE value="Simple delete, added sorting of posts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simple delete, added sorting of posts." />
   </component>
 </project>
