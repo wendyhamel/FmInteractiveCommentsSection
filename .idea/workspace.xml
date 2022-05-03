@@ -48,7 +48,7 @@
       <workItem from="1650454606692" duration="13722000" />
       <workItem from="1650554084893" duration="20792000" />
       <workItem from="1651226328283" duration="13116000" />
-      <workItem from="1651479948598" duration="4111000" />
+      <workItem from="1651479948598" duration="4725000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651508508838</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Reply edit comment working again.&#10;fixed width problem with a custom grid">
+      <created>1651508527440</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1651508527440</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
