@@ -32,7 +32,7 @@
         x-data="data()"
         class="grid gap-4 mx-auto max-w-3xl"
     >
-      <template x-for="post in posts" :key="post.id">
+      <template x-for="post in sortedPosts" :key="post.id">
         <div x-data="{startReply: false}">
           <div>
             <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6">
@@ -71,7 +71,7 @@
               </div>
               <div x-show="currentUser.username === post.user.username" class="flex justify-end items-center gap-4">
                 <button
-                    @click="deleteModal = true; messageToDelete = post"
+                    @click="deleteWarning = true; messageToDelete = post"
                     class="flex items-center gap-2 text-soft-red font-medium hover:text-pale-red ease-in-out duration-150"
                     type="button"
                 >
@@ -105,7 +105,7 @@
             >
               <div class="tracking-wide col-span-2 md:col-start-2">
                 <textarea
-                     x-model="newReply"
+                     x-model="newMessage"
                      placeholder="Add a comment..."
                      rows="3"
                      class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
@@ -117,7 +117,7 @@
               </div>
               <div class="flex justify-end md:block md:col-start-4">
                 <button
-                    @click="addReply(post); startReply = false"
+                    @click="addReply(post, post.user.username); startReply = false"
                     class="flex items-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
                     type="submit"
                 >
@@ -167,7 +167,7 @@
                     </div>
                     <div x-show="currentUser.username === reply.user.username" class="flex justify-end items-center gap-4">
                       <button
-                          @click="deleteModal = true; messageToDelete = reply"
+                          @click="deleteWarning = true; messageToDelete = reply"
                           class="flex items-center gap-2 text-soft-red font-medium hover:text-pale-red ease-in-out duration-150"
                           type="button"
                       >
@@ -201,23 +201,28 @@
                   >
                     <div class="tracking-wide col-span-2 md:col-start-2">
                       <textarea
-                         placeholder="Add a comment..."
-                         rows="3"
-                         class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
-                         style="resize:none;"
+                          x-model="newMessage"
+                          placeholder="Add a comment..."
+                          rows="3"
+                          class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"
+                          style="resize:none;"
                       ></textarea>
                     </div>
                     <div class="flex shrink-0 md:col-start-1">
                       <img class="w-8 h-8 shrink-0 md:w-10 md:h-10" :src="currentUser.image.png" :alt="currentUser.username">
                     </div>
                     <div class="flex justify-end md:block md:col-start-4">
-                      <button class="text-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150" type="submit">
+                      <button
+                          @click="addReply(post, reply.user.username)"
+                          class="text-center bg-blue rounded-lg py-3 px-7 uppercase text-white font-medium tracking-wide hover:bg-light-blue ease-in-out duration-150"
+                          type="submit"
+                      >
                         <span>Reply</span>
                       </button>
                     </div>
                   </div>
                   <div
-                      x-show="deleteModal"
+                      x-show="deleteWarning"
                       x-transition.opacity
                       class="fixed inset-0 bg-gray-900/30 shadow grid place-items-center"
                   >
@@ -229,13 +234,13 @@
                       <p class="text-gray-blue">Are you sue you want to delete this comment? This will remove the comment and can't be undone.</p>
                       <div class="flex flex-col gap-4 pb-2 sm:flex-row">
                         <button
-                            @click="messageToDelete = null; deleteModal = false"
+                            @click="messageToDelete = null; deleteWarning = false"
                             class="text-center bg-gray-blue rounded-lg py-3 px-7 uppercase text-white tracking-wide hover:bg-opacity-50 ease-in-out duration-150" type="submit"
                         >
                           <span>No, cancel</span>
                         </button>
                         <button
-                              @click="removeMessage(); deleteModal = false"
+                              @click="removeMessage(); deleteWarning = false"
                               class="text-center bg-soft-red rounded-lg py-3 px-7 uppercase text-white tracking-wide hover:bg-pale-red ease-in-out duration-150" type="submit">
                           <span>Yes, delete</span>
                         </button>
@@ -252,7 +257,7 @@
       <div class="grid bg-white rounded-lg gap-4 p-4 md:grid-cols-[auto_1fr_auto] md:grid-flow-row-dense md:p-6 md:gap-x-6">
         <div class="tracking-wide col-span-2 md:col-start-2">
            <textarea
-                   x-model="newPost"
+                   x-model="newMessage"
                    placeholder="Add a comment..."
                    rows="3"
                    class="py-4 px-6 text-dark-blue placeholder:text-gray-blue focus:caret-blue border border-light-gray rounded-lg w-full hover:border-blue focus:outline-none focus:border-blue ease-in-out duration-150"

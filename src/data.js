@@ -67,22 +67,25 @@ window.data = function () {
             }
         ],
 
-        deleteModal : false,
-        newPost: '',
+        sortedPosts : [],
+        deleteWarning : false,
+        newMessage: '',
         editing: null,
         messageToDelete: null,
-        newReply: '',
-        editedReply: null,
+
+        get sortedPosts() {
+            return this.posts.sort( (a, b) => {return b.score - a.score});
+        },
 
         addPost() {
-            if (! this.newPost) {
+            if (! this.newMessage) {
                 return;
             }
             this.posts.push({
                 id: Date.now(),
                 createdAt: 'just now',
                 score: 0,
-                content: this.newPost,
+                content: this.newMessage,
                 user: {
                     image: {
                         png: "./images/avatars/image-juliusomo.png",
@@ -92,7 +95,29 @@ window.data = function () {
                 }
             });
 
-            this.newPost = '';
+            this.newMessage = '';
+        },
+
+        addReply(parent, replyTo) {
+            if (! this.newMessage) {
+                return;
+            }
+            this.post.replies.push({
+                id: Date.now(),
+                createdAt: 'just now',
+                score: 0,
+                replyingTo: replyTo,
+                content: this.newMessage,
+                user: {
+                    image: {
+                        png: "./images/avatars/image-juliusomo.png",
+                        webp: "./images/avatars/image-juliusomo.webp"
+                    },
+                    username: "juliusomo"
+                }
+            });
+
+            this.newMessage = '';
         },
 
         edit(message) {
@@ -114,40 +139,7 @@ window.data = function () {
         },
 
         removeMessage() {
-            let id = this.messageToDelete.id;
-            let matchedArray = this.posts.flatMap(arr => arr.filter(this.posts.every(post => post.id.includes(id))))
-        },
-
-        removePost() {
-            let index = this.posts.indexOf(this.postToDelete);
-            this.posts.splice(index, 1);
-        },
-
-        addReply(post) {
-            if (! this.newReply) {
-                return;
-            }
-            this.post.replies.push({
-                id: Date.now(),
-                createdAt: 'just now',
-                score: 0,
-                replyingTo: post.user.username,
-                content: this.newReply,
-                user: {
-                    image: {
-                        png: "./images/avatars/image-juliusomo.png",
-                        webp: "./images/avatars/image-juliusomo.webp"
-                    },
-                    username: "juliusomo"
-                }
-            });
-
-            this.newReply = '';
-        },
-
-        removeReply(post, reply) {
-            let index = post.replies.indexOf(reply);
-            post.replies.splice(index, 1);
+            delete this.messageToDelete
         },
 
     }

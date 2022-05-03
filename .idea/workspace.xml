@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="" />
+    <list default="true" id="81a6e6ab-b825-43e6-8001-49cb6ba2a065" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +23,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="283oNLPgJsA70p32g8haqFDwTk0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -48,7 +60,7 @@
       <workItem from="1650454606692" duration="13722000" />
       <workItem from="1650554084893" duration="20792000" />
       <workItem from="1651226328283" duration="13116000" />
-      <workItem from="1651479948598" duration="4725000" />
+      <workItem from="1651479948598" duration="9815000" />
     </task>
     <task id="LOCAL-00001" summary="setup project">
       <created>1650454641577</created>
@@ -134,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651508527440</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed width problem with a custom grid">
+      <created>1651572206573</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1651572206573</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +173,7 @@
     <MESSAGE value="Working on crud" />
     <MESSAGE value="Working on cleanup code" />
     <MESSAGE value="Reply edit comment working again.&#10;fixed width problem with a custom grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reply edit comment working again.&#10;fixed width problem with a custom grid" />
+    <MESSAGE value="fixed width problem with a custom grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed width problem with a custom grid" />
   </component>
 </project>
